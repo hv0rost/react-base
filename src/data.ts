@@ -21,7 +21,7 @@ export const ways = [
   },
 ];
 
-export const differences = {
+export const differences: Record<string, string> = {
   way: "Узконаправленный подход. Учим только фронтенду, поэтому вы получаете именно те знания, за которыми пришли.",
   easy: "Доступность обучения. Простыми словами объясняем сложные темы на понятных примерах.",
   program:

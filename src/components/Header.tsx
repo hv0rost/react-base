@@ -1,8 +1,11 @@
+import { useState } from "react";
 import logo from "../assets/react.svg";
 
-const date = new Date();
-
 export default function Header() {
+  const [date, setDate] = useState(new Date());
+
+  setInterval(() => setDate(new Date()), 1000);
+ 
   return (
     <header>
       <div style={{ display: "flex", alignItems: "center" }}>

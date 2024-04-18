@@ -13,6 +13,11 @@
 }
 
 .button:active {
- background: #3e6ae1;
- color: #fff;
+  background: #3e6ae1;
+  color: #fff;
+}
+
+.active {
+  background: #3e6ae1;
+  color: #fff;
 }

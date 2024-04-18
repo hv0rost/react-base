@@ -1,5 +1,15 @@
 import "./Button.css";
 
-export default function Button({ children }: { children: string }) {
-  return <button className="button">{children}</button>;
+interface ButtonProps {
+  children: string;
+  onClick?: () => void;
+  className?: string
+}
+
+export default function Button({ children, onClick, className }: ButtonProps) {
+  return (
+    <button className={`button ${className}`} onClick={onClick}>
+      {children}
+    </button>
+  );
 }
