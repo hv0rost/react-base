@@ -1,15 +1,20 @@
-import "./Button.css";
+import classes from "./Button.module.css";
 
 interface ButtonProps {
   children: string;
   onClick?: () => void;
-  className?: string
+  active?: boolean;
+  disabled?: boolean;
 }
 
-export default function Button({ children, onClick, className }: ButtonProps) {
+export default function Button({ ...props }: ButtonProps) {
   return (
-    <button className={`button ${className}`} onClick={onClick}>
-      {children}
+    <button
+      disabled={props.disabled}
+      className={`${classes.button} ${props.active && classes.active}`}
+      onClick={props.onClick}
+    >
+      {props.children}
     </button>
   );
 }
