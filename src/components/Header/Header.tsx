@@ -1,8 +1,8 @@
-import logo from "../../assets/react.svg";
-import "./Header.module.css";
+import logo from "../../assets/react.svg"
+import "./Header.module.css"
 
-import { useState } from "react";
-import { styled } from "styled-components";
+import { useEffect, useState } from "react"
+import { styled } from "styled-components"
 
 const HeaderContainer = styled.header`
   height: 50px;
@@ -12,12 +12,19 @@ const HeaderContainer = styled.header`
   align-items: center;
   border-bottom: 1px solid #ccc;
   background: #fafafa;
-`;
+`
 
 export default function Header() {
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(new Date())
 
-  setInterval(() => setDate(new Date()), 1000);
+  useEffect(() => {
+    const interval = setInterval(() => setDate(new Date()), 1000)
+
+    return () => {
+      clearInterval(interval)
+      console.log("clear interval")
+    }
+  }, [])
 
   return (
     <HeaderContainer>
@@ -27,5 +34,5 @@ export default function Header() {
       </div>
       <span>Time now {date.toLocaleTimeString()}</span>
     </HeaderContainer>
-  );
+  )
 }
